@@ -1,5 +1,7 @@
 # NetFlix-Clone
 
+This is Netflix Cloned app made using Reactjs and firebase for authentication purpose internally used TMDB API Key.
+
 ## Landing Page
 
 <img src= "https://user-images.githubusercontent.com/57553757/125473451-44e7ef15-c4bc-4a72-8ef4-b25555e65776.png" />
