@@ -52,3 +52,13 @@
     #111
   );
 }
+.bannerlogo {
+  height: 36px;
+  width: 134px;
+  margin-right: 40px;
+  margin-top: 1rem;
+  @media (min-width: 1449px) {
+    height: 45px;
+    width: 167px;
+  }
+}

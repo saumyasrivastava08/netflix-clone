@@ -1,8 +1,13 @@
-import  React, { useEffect, useState } from 'react';
+import  React, { useEffect, useState , useContext } from 'react';
 import axios from '../../sources/axios'
 import requests from '../../sources/requests';
 import './banner.css';
+import logo from '../Navbar/logo/logo1/flixlogo.png'
+import * as ROUTES from '../../Routes/routes'
+import { FirebaseContext } from '../../Firebase/firebaseContext';
+import { Link } from 'react-router-dom';
 export default function Banner() {
+   const { firebase } = useContext(FirebaseContext);
  const [movie,setMovies] = useState([]);
  useEffect(() => {
         async function fetchData() {
@@ -28,6 +33,20 @@ export default function Banner() {
          backgroundPosition:"center center"
        }}
        >
+         <div>
+  <Link to={ROUTES.HOME}>  <img src={logo} alt="NETFLIX" className="bannerlogo"  to={ROUTES.HOME }/></Link>
+              
+<input type="button" value="LOGOUT" style={{float: "right" , cursor:"pointer" ,  color: "#fff",
+  fontSize: "12px",
+  fontWeight: "bold",
+  marginBottom: "28px",
+  backgroundColor:"red",
+  marginTop:"1rem",
+  marginRight:"0.5rem",
+  padding: "0.5rem 2rem 0.5rem 2rem"}} onClick={() => firebase.auth().signOut()}/>
+      
+         </div>
+         
         <div className="banner_contents">
              <h1 className="banner_title">
                {movie?.title || movie?.name || movie?.original_name}
@@ -40,7 +59,7 @@ export default function Banner() {
               {truncate(movie?.overview, 150)};
              </h1>
         </div>
-          <div className="banner--fadeBottom" />
+        
       </header>
      
     

@@ -1,17 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { render } from 'react-dom';
+import { FirebaseContext } from './Firebase/firebaseContext';
+import 'normalize.css';
+import  firebase  from './Firebase/firebase';
+import { GlobalStyles } from './global-styles';
+import  App  from './App';
 
-ReactDOM.render(
+
+render(
   <React.StrictMode>
-    <App />
+     <FirebaseContext.Provider value={{ firebase }}>
+      <GlobalStyles />
+      <App />
+   </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+); 
